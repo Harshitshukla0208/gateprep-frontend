@@ -1,9 +1,8 @@
+'use client'
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
-import { useToast } from "@/hooks/use-toast"
-import { Toaster } from "@/components/ui/toaster";
 import QRCode from '../assets/QR.jpg';
 import { ToastContainer } from "@/components/CustomToast";
 interface FormProps {
