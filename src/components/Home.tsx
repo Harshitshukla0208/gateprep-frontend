@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { BookOpen } from 'lucide-react';
 import Lottie from 'lottie-react';
 import animation from '../assets/animation.json'
+import RegistrationForm from './Form';
 
 interface TypewriterTextProps {
     text: string;
@@ -45,17 +46,19 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({ text, delay = 0 }) => {
 };
 
 const Home: React.FC = () => {
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
     return (
         <div className="w-full min-h-[80vh] flex items-center justify-center bg-[#0a0f1e]">
             <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                
+
                 {/* Mobile-Optimized Background Effects */}
                 <div className="absolute inset-0 sm:hidden overflow-hidden">
                     <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-[#60a5fa]/20 to-transparent opacity-30" />
                     <div className="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-[#c084fc]/20 to-transparent opacity-30" />
-                    <div 
+                    <div
                         className="absolute inset-0 bg-[#0a0f1e]"
-                        style={{ 
+                        style={{
                             maskImage: 'radial-gradient(circle at 50% 50%, transparent 20%, black 70%)',
                             WebkitMaskImage: 'radial-gradient(circle at 50% 50%, transparent 20%, black 70%)'
                         }}
@@ -66,7 +69,7 @@ const Home: React.FC = () => {
                 <div className="absolute inset-0 hidden sm:block overflow-hidden">
                     <div
                         className="absolute inset-0 bg-gradient-to-b from-[#0a0f1e] via-[#0a0f1e]/90 to-[#0a0f1e]"
-                        style={{ 
+                        style={{
                             maskImage: 'radial-gradient(circle at center, transparent, black)',
                             WebkitMaskImage: 'radial-gradient(circle at center, transparent, black)'
                         }}
@@ -84,7 +87,7 @@ const Home: React.FC = () => {
                             className="flex items-center justify-center sm:justify-start space-x-2 mb-5"
                         >
                             <BookOpen className="w-5 h-5 sm:w-6 sm:h-6 text-[#60a5fa] relative animate-bounce" />
-                            
+
                             <span className="text-lg font-medium tracking-wide sm:hidden bg-gradient-to-br from-[#60a5fa] via-[#a78bfa] to-[#c084fc] bg-clip-text text-transparent">
                                 Welcome to GatePrep
                             </span>
@@ -134,7 +137,10 @@ const Home: React.FC = () => {
                             transition={{ duration: 0.6, delay: 0.5 }}
                             className="mb-5 sm:mb-0"
                         >
-                            <button className="w-40 sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-gradient-to-br from-[#60a5fa] via-[#818cf8] to-[#c084fc] text-white font-medium text-sm sm:text-base hover:opacity-90 transition-opacity shadow-lg shadow-[#60a5fa]/20">
+                            <button
+                                onClick={() => setIsFormOpen(true)}
+                                className="w-40 sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-gradient-to-br from-[#60a5fa] via-[#818cf8] to-[#c084fc] text-white font-medium text-sm sm:text-base hover:opacity-90 transition-opacity shadow-lg shadow-[#60a5fa]/20"
+                            >
                                 Register
                             </button>
                         </motion.div>
@@ -148,7 +154,7 @@ const Home: React.FC = () => {
                         className="sm:flex-1 md:ml-32 w-full sm:w-auto mt-8 sm:mt-0"
                     >
                         <div className="w-48 sm:w-96 mx-auto">
-                            <Lottie 
+                            <Lottie
                                 animationData={animation}
                                 loop={true}
                                 autoplay={true}
@@ -173,7 +179,7 @@ const Home: React.FC = () => {
                         transition={{ delay: 0.9 }}
                         className="sm:hidden absolute bottom-10 left-0 w-40 h-40 bg-gradient-to-br from-[#c084fc] to-[#60a5fa] rounded-full filter blur-[80px] -z-10"
                     />
-                    
+
                     {/* Desktop Glow Effects */}
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -189,6 +195,10 @@ const Home: React.FC = () => {
                     />
                 </div>
             </div>
+            <RegistrationForm
+                isOpen={isFormOpen}
+                onClose={() => setIsFormOpen(false)}
+            />
         </div>
     );
 };
