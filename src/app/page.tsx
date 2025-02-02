@@ -2,7 +2,7 @@
 import { Loader } from '@/components/Loader';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Banner from '@/components/Banner';
+import Banner from '@/components/Home';
 
 function HomePage() {
   return (

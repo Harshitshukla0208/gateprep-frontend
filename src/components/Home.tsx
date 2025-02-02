@@ -44,7 +44,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({ text, delay = 0 }) => {
     );
 };
 
-const Banner: React.FC = () => {
+const Home: React.FC = () => {
     return (
         <div className="w-full min-h-[80vh] flex items-center justify-center bg-[#0a0f1e]">
             <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -193,4 +193,4 @@ const Banner: React.FC = () => {
     );
 };
 
-export default Banner;
+export default Home;
