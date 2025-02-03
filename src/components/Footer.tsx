@@ -29,26 +29,8 @@ export function Footer() {
 
           {/* Social and Copyright */}
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <div className="flex items-center space-x-4">
-              <a 
-                href="https://github.com/Harshitshukla0208" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-indigo-300 transition-colors"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/harshit-shukla-9a5950239/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-indigo-300 transition-colors"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
             <p className="text-xs sm:text-sm text-gray-400 text-center">
-              &copy; {new Date().getFullYear()} GatePrep. All rights reserved.
+              &copy; {new Date().getFullYear()} GATEPrep. All rights reserved.
             </p>
           </div>
         </div>

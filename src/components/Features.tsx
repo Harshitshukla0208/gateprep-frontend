@@ -6,17 +6,17 @@ export function Features() {
     {
       icon: <BookOpen className="h-10 w-10 text-[#4a5fab]" />,
       title: "GATE-like Experience",
-      description: "Practice with exam patterns and questions similar to actual GATE examinations"
+      description: "Practice with exam patterns and questions similar to actual GATE Examinations"
     },
     {
       icon: <Users className="h-10 w-10 text-[#3b4a7c]" />,
-      title: "All Branches Welcome",
-      description: "Dedicated sections for every engineering discipline with specialized content"
+      title: "All India Gate Rank",
+      description: "Find out your Rank among other cadidates & where you stand in your GATEPrep Journey!"
     },
     {
       icon: <Trophy className="h-10 w-10 text-[#5a6bb5]" />,
       title: "Cash Prizes",
-      description: "Top 3 performers from each branch win exciting cash rewards"
+      description: "Top 3 performers from each branch will win exciting cash rewards"
     }
   ];
 

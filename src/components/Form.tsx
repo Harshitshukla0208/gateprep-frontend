@@ -68,10 +68,10 @@ const RegistrationForm: React.FC<FormProps> = ({ isOpen, onClose }) => {
     };
 
     const subjects = [
-        { value: "CE", label: "Computer Engineering" },
-        { value: "ME", label: "Mechanical Engineering" },
-        { value: "EE", label: "Electrical Engineering" },
-        { value: "CS", label: "Computer Science" }
+        { value: "EC", label: "Electronics and Communication Engineering" },
+        { value: "CE", label: "Civil Engineering" },
+        { value: "CH", label: "Chemical Engineering" },
+        
     ];
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

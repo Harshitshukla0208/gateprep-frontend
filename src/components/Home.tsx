@@ -109,7 +109,7 @@ const Home: React.FC = () => {
                             </div>
                             {/* Desktop Heading */}
                             <span className="hidden sm:inline-block bg-gradient-to-r from-[#60a5fa] via-[#818cf8] to-[#c084fc] bg-clip-text text-transparent">
-                                <TypewriterText text="Master GATE with Confidence" />
+                                <TypewriterText text="Prepare for GATE with Confidence" />
                             </span>
                         </motion.h1>
 
@@ -122,11 +122,11 @@ const Home: React.FC = () => {
                         >
                             {/* Mobile Description */}
                             <span className="sm:hidden bg-gradient-to-br from-[#93c5fd] via-[#818cf8] to-[#c084fc] bg-clip-text text-transparent">
-                                Learn from top educators, solve mock tests, and get expert guidance.
+                            Appear for All India GATE MOCK TEST and find out your strength for the Real Battle.
                             </span>
                             {/* Desktop Description */}
                             <span className="hidden sm:inline-block bg-gradient-to-r from-[#60a5fa] via-[#818cf8] to-[#c084fc] bg-clip-text text-transparent">
-                                Access comprehensive study materials, practice tests, and personalized guidance to excel in your GATE preparation journey.
+                                 Appear for All India GATE MOCK TEST and find out your strength for the Real Battle. Also, Win exciting CASH PRIZES along the way!
                             </span>
                         </motion.p>
 
@@ -141,7 +141,7 @@ const Home: React.FC = () => {
                                 onClick={() => setIsFormOpen(true)}
                                 className="w-40 sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg bg-gradient-to-br from-[#60a5fa] via-[#818cf8] to-[#c084fc] text-white font-medium text-sm sm:text-base hover:opacity-90 transition-opacity shadow-lg shadow-[#60a5fa]/20"
                             >
-                                Register
+                                REGISTER
                             </button>
                         </motion.div>
                     </div>
