@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+html, body {
+  overflow-y: auto;
+  overscroll-behavior: none;
   font-family: Arial, Helvetica, sans-serif;
 }
 

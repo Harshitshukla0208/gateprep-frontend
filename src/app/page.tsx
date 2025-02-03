@@ -3,6 +3,8 @@ import { Loader } from '@/components/Loader';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from "next/dynamic";
+import { Features } from '@/components/Features';
+import { Footer } from '@/components/Footer';
 
 const Banner = dynamic(() => import("@/components/Home"), { ssr: false });
 
@@ -15,9 +17,10 @@ function HomePage() {
         duration: 0.8,
         ease: "easeOut"
       }}
-      className="min-h-screen p-4 md:p-8 bg-[#0a0f1e] text-white"
-    >
+      className="min-h-screen p-0 md:p-0 bg-[#0a0f1e] text-white overflow-y-auto overflow-x-hidden">
       <Banner />
+      <Features />
+      <Footer />
     </motion.div>
   );
 }
@@ -33,7 +36,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative overflow-hidden min-h-screen bg-[#0a0f1e]">
+    <div className="relative min-h-screen bg-[#0a0f1e]">
       <AnimatePresence initial={false}>
         {loading ? (
           <motion.div

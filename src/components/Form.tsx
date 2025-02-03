@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import QRCode from '../assets/QR.jpg';
 import { ToastContainer } from "@/components/CustomToast";
+
 interface FormProps {
     isOpen: boolean;
     onClose: () => void;
@@ -17,7 +18,6 @@ interface FormData {
     subject: string;
     upiId: string;
 }
-
 
 interface Toast {
     id: string;
@@ -36,6 +36,7 @@ const RegistrationForm: React.FC<FormProps> = ({ isOpen, onClose }) => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [toasts, setToasts] = useState<Toast[]>([]);
+    const [isCopied, setIsCopied] = useState(false);
 
     const addToast = (message: string, type: "success" | "error" | "info", title?: string) => {
         const newToast = {
@@ -118,10 +119,44 @@ const RegistrationForm: React.FC<FormProps> = ({ isOpen, onClose }) => {
             setIsSubmitting(false);
         }
     };
+    const upiId = 'mrharshitshukla2672@oksbi';
+    const copyToClipboard = async () => {
+        try {
+            // Multiple fallback methods for clipboard
+            if (navigator.clipboard && window.isSecureContext) {
+                // Modern browsers with clipboard API
+                await navigator.clipboard.writeText(upiId);
+            } else {
+                // Fallback for older browsers and mobile
+                const textArea = document.createElement('textarea');
+                textArea.value = upiId;
 
-    const handleQRClick = () => {
-        const googlePayUrl = `tez://upi/pay?pa=mrharshitshukla2672@oksbi&pn=Registration%20Payment`;
-        window.location.href = googlePayUrl;
+                // Make the textarea out of viewport
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+
+                // Select the text
+                textArea.focus();
+                textArea.select();
+
+                // Copy text
+                const successful = document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                if (!successful) {
+                    throw new Error('Failed to copy');
+                }
+            }
+
+            // Show copied state
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 2000);
+        } catch (err) {
+            console.error('Copy failed', err);
+            alert('Failed to copy UPI ID');
+        }
     };
 
     return (
@@ -253,8 +288,28 @@ const RegistrationForm: React.FC<FormProps> = ({ isOpen, onClose }) => {
 
                                 {/* QR Code Section */}
                                 <div className="sm:w-64 flex flex-col items-center sm:mt-36 sm:justify-center h-full">
-                                    <button 
-                                        onClick={handleQRClick}
+                                    <p className="text-xs sm:text-sm text-white/60 mt-4">Scan to Pay</p>
+                                    <div className="flex items-center justify-center">
+                                        <p className="text-xs sm:text-sm text-white/80 font-medium mt-1 mb-5 mr-2">
+                                            UPI ID: <span className="text-[#60a5fa]">{upiId}</span>
+                                        </p>
+                                        <button
+                                            onClick={copyToClipboard}
+                                            className={`text-[#60a5fa] hover:text-[#60a5fa]/80 transition-colors text-xs -mt-4
+                        ${isCopied ? 'text-green-500' : ''}`}
+                                        >
+                                            {isCopied ? (
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            ) : (
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                                </svg>
+                                            )}
+                                        </button>
+                                    </div>
+                                    <button
                                         className="group relative cursor-pointer transition-all duration-200 hover:opacity-90"
                                     >
                                         <div className="w-40 h-40 bg-white/5 rounded-2xl flex items-center justify-center p-3 border border-white/10 group-hover:border-[#60a5fa]/30 transition-colors">
@@ -268,12 +323,8 @@ const RegistrationForm: React.FC<FormProps> = ({ isOpen, onClose }) => {
                                             <p className="text-white text-sm font-medium">Scan with camera</p>
                                         </div>
                                     </button>
-                                    <p className="text-xs sm:text-sm text-white/60 mt-4">Scan to Pay</p>
-                                    <p className="text-xs sm:text-sm text-white/80 font-medium mt-1">
-                                        UPI ID: <span className="text-[#60a5fa]">mrharshitshukla2672@oksbi</span>
-                                    </p>
                                 </div>
-                            </div>
+                                </div>
                         </motion.div>
                     </div>
                     <ToastContainer toasts={toasts} removeToast={removeToast} />
