@@ -288,7 +288,8 @@ const RegistrationForm: React.FC<FormProps> = ({ isOpen, onClose }) => {
 
                                 {/* QR Code Section */}
                                 <div className="sm:w-64 flex flex-col items-center sm:mt-36 sm:justify-center h-full">
-                                    <p className="text-xs sm:text-sm text-white/60 mt-4">Scan to Pay</p>
+                                    <p className="text-xs sm:text-sm text-white/60 mt-4">Scan to Pay (If possible use G-Pay)</p>
+                                    <p className="text-sm font-bold text-[#60a5fa] mb-2 mt-3">Pay ₹25 for Registration</p>
                                     <div className="flex items-center justify-center">
                                         <p className="text-xs sm:text-sm text-white/80 font-medium mt-1 mb-5 mr-2">
                                             UPI ID: <span className="text-[#60a5fa]">{upiId}</span>

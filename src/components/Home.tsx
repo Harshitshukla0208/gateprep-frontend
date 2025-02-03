@@ -122,11 +122,11 @@ const Home: React.FC = () => {
                         >
                             {/* Mobile Description */}
                             <span className="sm:hidden bg-gradient-to-br from-[#93c5fd] via-[#818cf8] to-[#c084fc] bg-clip-text text-transparent">
-                            Appear for All India GATE MOCK TEST and find out your strength for the Real Battle.
+                            Appear for All India Gate Mock Test and find out your strength for the real battle.
                             </span>
                             {/* Desktop Description */}
                             <span className="hidden sm:inline-block bg-gradient-to-r from-[#60a5fa] via-[#818cf8] to-[#c084fc] bg-clip-text text-transparent">
-                                 Appear for All India GATE MOCK TEST and find out your strength for the Real Battle. Also, Win exciting CASH PRIZES along the way!
+                                Appear for All India Gate Mock Test and find out your strength for the real battle. Also, Win exciting CASH PRIZES along the way!
                             </span>
                         </motion.p>
 
