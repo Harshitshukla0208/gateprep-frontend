@@ -2,7 +2,9 @@
 import { Loader } from '@/components/Loader';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Banner from '@/components/Home';
+import dynamic from "next/dynamic";
+
+const Banner = dynamic(() => import("@/components/Home"), { ssr: false });
 
 function HomePage() {
   return (

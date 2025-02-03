@@ -120,7 +120,7 @@ const RegistrationForm: React.FC<FormProps> = ({ isOpen, onClose }) => {
     };
 
     const handleQRClick = () => {
-        const googlePayUrl = `tez://upi/pay?pa=xyz@upi&pn=Registration%20Payment`;
+        const googlePayUrl = `tez://upi/pay?pa=mrharshitshukla2672@oksbi&pn=Registration%20Payment`;
         window.location.href = googlePayUrl;
     };
 
